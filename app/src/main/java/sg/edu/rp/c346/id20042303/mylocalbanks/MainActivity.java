@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
-        if(clicked == "dbs"){
+        if(clicked.equals("dbs")){
             if(item.getItemId()==0){
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.dbsWebsite)));
                 startActivity(intent);
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + getString(R.string.dbsNumber)));
                 startActivity(intent);
             }
-        }else if(clicked == "ocbc"){
+        }else if(clicked.equals("ocbc")){
             if(item.getItemId()==0){
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.ocbcWebsite)));
                 startActivity(intent);
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + getString(R.string.ocbcNumber)));
                 startActivity(intent);
             }
-        }else if(clicked == "uob"){
+        }else if(clicked.equals("uob")){
             if(item.getItemId()==0){
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.uobWebsite)));
                 startActivity(intent);
