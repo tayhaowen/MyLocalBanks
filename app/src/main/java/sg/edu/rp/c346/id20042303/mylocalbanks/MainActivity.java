@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
 
-        menu.add(0,0,0,"Website");
-        menu.add(0,1,1,"Contact the bank");
+        menu.add(0,0,0,getString(R.string.website));
+        menu.add(0,1,1,getString(R.string.contactBank));
         if(v == tvDBS){
             clicked = "dbs";
         }else if(v == tvOCBC){
@@ -51,26 +51,26 @@ public class MainActivity extends AppCompatActivity {
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         if(clicked == "dbs"){
             if(item.getItemId()==0){
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.dbs.com.sg/"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.dbsWebsite)));
                 startActivity(intent);
             }else if(item.getItemId()==1){
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "18001111111"));
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + getString(R.string.dbsNumber)));
                 startActivity(intent);
             }
         }else if(clicked == "ocbc"){
             if(item.getItemId()==0){
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.ocbc.com/"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.ocbcWebsite)));
                 startActivity(intent);
             }else if(item.getItemId()==1){
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "18003633333"));
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + getString(R.string.ocbcNumber)));
                 startActivity(intent);
             }
         }else if(clicked == "uob"){
             if(item.getItemId()==0){
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.uobgroup.com/"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.uobWebsite)));
                 startActivity(intent);
             }else if(item.getItemId()==1){
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "18002222121"));
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + getString(R.string.uobNumber)));
                 startActivity(intent);
             }
         }
@@ -88,13 +88,13 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if(id==R.id.EnglishSelection){
-            tvDBS.setText("DBS Bank");
-            tvOCBC.setText("OCBC Bank");
-            tvUOB.setText("UOB Bank");
+            tvDBS.setText(getString(R.string.dbs));
+            tvOCBC.setText(getString(R.string.ocbc));
+            tvUOB.setText(getString(R.string.uob));
         }else if(id==R.id.ChineseSelection){
-            tvDBS.setText("星展银行");
-            tvOCBC.setText("华侨银行");
-            tvUOB.setText("乌布银行");
+            tvDBS.setText(getString(R.string.dbsChinese));
+            tvOCBC.setText(getString(R.string.ocbcChinese));
+            tvUOB.setText(getString(R.string.uobChinese));
         }
 
         return super.onOptionsItemSelected(item);
